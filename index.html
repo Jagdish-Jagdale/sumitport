@@ -1,577 +1,1313 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sumit Tivade · Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --ink:#0d0d0d;--cream:#f5f0e8;--rust:#c0392b;--gold:#d4a01e;
-  --sage:#4a6741;--paper:#ede8df;--muted:#8a8278;--blue:#1a3a5c;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumit Tivade · Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.cursor{width:12px;height:12px;background:var(--rust);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:multiply;}
-.cursor-ring{width:38px;height:38px;border:1.5px solid var(--rust);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.45;}
+    :root {
+      --ink: #0d0d0d;
+      --cream: #f5f0e8;
+      --rust: #c0392b;
+      --gold: #d4a01e;
+      --sage: #4a6741;
+      --paper: #ede8df;
+      --muted: #8a8278;
+      --blue: #1a3a5c;
+    }
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 3rem;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:multiply;}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.06em;color:var(--ink);}
-.nav-links{display:flex;gap:2rem;}
-.nav-links a{text-decoration:none;color:var(--ink);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;transition:opacity .2s;}
-.nav-links a:hover{opacity:1;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 4rem 4rem;position:relative;z-index:2;}
-.hero-tag{font-size:.73rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:1.4rem;display:flex;align-items:center;gap:.8rem;}
-.hero-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--rust);}
-.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,9vw,8.5rem);line-height:.9;letter-spacing:-.01em;}
-.hero-name span{color:var(--rust);}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);color:var(--muted);letter-spacing:.06em;margin-top:.5rem;}
-.hero-desc{margin-top:1.8rem;font-size:.95rem;line-height:1.75;color:var(--muted);max-width:380px;font-weight:300;}
-.hero-contact{margin-top:1.5rem;display:flex;flex-direction:column;gap:.4rem;}
-.hero-contact span{font-size:.78rem;letter-spacing:.08em;color:var(--muted);}
-.hero-contact span b{color:var(--ink);font-weight:500;}
-.hero-cta{margin-top:2.5rem;display:flex;gap:1.2rem;align-items:center;}
-.btn-primary{background:var(--ink);color:var(--cream);padding:.85rem 2rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s;display:inline-block;}
-.btn-primary:hover{background:var(--rust);transform:translateY(-2px);}
-.btn-ghost{color:var(--ink);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:2px;opacity:.6;transition:opacity .2s;}
-.btn-ghost:hover{opacity:1;}
-.hero-right{position:relative;display:flex;align-items:center;justify-content:center;}
-#heroCanvas{width:100%;height:100%;position:absolute;inset:0;}
-.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:10;}
-.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--muted),transparent);animation:sp 2s ease-in-out infinite;}
-@keyframes sp{0%,100%{opacity:.35;}50%{opacity:1;}}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
 
-.marquee-wrap{background:var(--ink);color:var(--cream);padding:1rem 0;overflow:hidden;white-space:nowrap;}
-.marquee-track{display:inline-flex;gap:2.5rem;animation:mq 20s linear infinite;}
-.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.06em;}
-.marquee-dot{color:var(--rust);}
-@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    .cursor {
+      width: 12px;
+      height: 12px;
+      background: var(--rust);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s;
+      mix-blend-mode: multiply;
+    }
 
-#about{padding:7rem 4rem;display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:center;}
-.about-big-num{font-family:'Bebas Neue',sans-serif;font-size:11rem;line-height:1;color:var(--paper);}
-.section-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:1.4rem;}
-.section-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.2rem);line-height:1;margin-bottom:1.4rem;}
-.about-text{font-size:.96rem;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:1rem;}
-.skills-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem;}
-.skill-tag{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.38rem .85rem;border:1.5px solid var(--ink);color:var(--ink);cursor:default;transition:background .2s,color .2s;}
-.skill-tag:hover{background:var(--ink);color:var(--cream);}
+    .cursor-ring {
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid var(--rust);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      opacity: .45;
+    }
 
-#work{padding:7rem 4rem;background:var(--paper);}
-.work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;}
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;}
-.project-card{position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(13,13,13,.08);aspect-ratio:16/10;}
-.project-canvas{width:100%;height:100%;display:block;}
-.project-overlay{position:absolute;inset:0;background:var(--ink);opacity:0;transition:opacity .35s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;}
-.project-card:hover .project-overlay{opacity:.95;}
-.proj-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:rgba(255,255,255,.07);position:absolute;top:.8rem;right:1.2rem;line-height:1;}
-.proj-tag{font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);margin-bottom:.4rem;}
-.proj-title{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--cream);line-height:1.05;margin-bottom:.5rem;}
-.proj-desc{font-size:.78rem;color:rgba(245,240,232,.6);line-height:1.65;font-weight:300;}
-.proj-arrow{position:absolute;top:1.4rem;left:1.4rem;width:2rem;height:2rem;background:var(--rust);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:white;transform:rotate(-45deg) scale(0);transition:transform .3s ease;}
-.project-card:hover .proj-arrow{transform:rotate(0deg) scale(1);}
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.4rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mix-blend-mode: multiply;
+    }
 
-#edu{padding:7rem 4rem;background:var(--ink);color:var(--cream);}
-.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:3rem;}
-.edu-card{background:var(--ink);padding:2.2rem 2rem;}
-.edu-year{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:.8rem;}
-.edu-inst{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--cream);line-height:1.1;margin-bottom:.5rem;}
-.edu-degree{font-size:.8rem;color:rgba(245,240,232,.5);line-height:1.5;margin-bottom:.8rem;}
-.edu-score{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);}
-.edu-score-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.35);}
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: .06em;
+      color: var(--ink);
+    }
 
-#stats{padding:4.5rem 4rem;background:var(--rust);color:var(--cream);display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
-.stat-item{padding:1.8rem 2rem;border-right:1px solid rgba(255,255,255,.18);}
-.stat-item:last-child{border-right:none;}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;line-height:1;color:var(--cream);}
-.stat-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.3rem;}
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
 
-#cert{padding:5rem 4rem;background:var(--paper);}
-.cert-box{margin-top:2.5rem;border:2px solid var(--ink);padding:2rem 2.5rem;display:flex;align-items:center;gap:2rem;max-width:580px;}
-.cert-icon{font-size:2.5rem;flex-shrink:0;}
-.cert-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;line-height:1.1;}
-.cert-sub{font-size:.8rem;color:var(--muted);margin-top:.3rem;}
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: .8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .6;
+      transition: opacity .2s;
+    }
 
-#contact{padding:7rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
-.contact-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,6.5rem);line-height:.95;}
-.contact-big span{color:var(--rust);}
-.contact-info{margin-top:2rem;display:flex;flex-direction:column;gap:.8rem;}
-.contact-info a{font-size:.9rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:.7rem;transition:color .2s;}
-.contact-info a:hover{color:var(--rust);}
-.contact-form{display:flex;flex-direction:column;gap:1.4rem;}
-.form-field{display:flex;flex-direction:column;gap:.35rem;}
-.form-field label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
-.form-field input,.form-field textarea{background:transparent;border:none;border-bottom:1.5px solid rgba(13,13,13,.2);padding:.55rem 0;font-family:'DM Sans',sans-serif;font-size:.93rem;color:var(--ink);outline:none;transition:border-color .2s;resize:none;}
-.form-field input:focus,.form-field textarea:focus{border-color:var(--rust);}
-.form-field textarea{height:75px;}
-.submit-btn{background:var(--ink);color:white;border:none;padding:.9rem 2.2rem;font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;align-self:flex-start;transition:background .2s,transform .15s;}
-.submit-btn:hover{background:var(--rust);transform:translateY(-2px);}
+    .nav-links a:hover {
+      opacity: 1;
+    }
 
-footer{background:var(--ink);color:rgba(245,240,232,.4);padding:1.8rem 4rem;display:flex;justify-content:space-between;align-items:center;font-size:.73rem;letter-spacing:.1em;}
-footer .fl{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--cream);}
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
 
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem 4rem;
+      position: relative;
+      z-index: 2;
+    }
 
-@media(max-width:900px){
-  #hero{grid-template-columns:1fr;}
-  .hero-right{height:50vh;}
-  #about,#contact{grid-template-columns:1fr;gap:2rem;}
-  .about-big-num{display:none;}
-  .projects-grid,.edu-grid,#stats{grid-template-columns:1fr;}
-  nav{padding:1.2rem 1.5rem;}
-  #about,#work,#edu,#cert,#contact{padding:4rem 1.5rem;}
-  #stats{padding:3rem 1.5rem;}
-}
+    .hero-tag {
+      font-size: .73rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
 
-/* Resume Section */
-#resume{padding:7rem 4rem;background:var(--cream);border-top:1px solid rgba(13,13,13,.05);}
-.resume-container{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;}
-.resume-summary{font-size:1.1rem;line-height:1.7;color:var(--muted);font-weight:300;}
-.resume-summary b{color:var(--ink);font-weight:500;}
-.resume-cta-box{background:var(--ink);padding:3rem;display:flex;flex-direction:column;gap:1.5rem;justify-content:center;position:relative;overflow:hidden;}
-.resume-cta-box::before{content:'';position:absolute;top:-20%;right:-10%;width:150px;height:150px;background:var(--rust);border-radius:50%;opacity:.2;filter:blur(40px);}
-.resume-cta-text{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--cream);line-height:1;}
-.btn-resume{background:var(--rust);color:white;padding:1rem 2rem;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;display:inline-block;transition:transform .2s,background .2s;border:none;cursor:pointer;text-align:center;}
-.btn-resume:hover{background:var(--blue);transform:translateY(-3px);}
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1.5px;
+      background: var(--rust);
+    }
 
-@media(max-width:900px){
-  .resume-container{grid-template-columns:1fr;gap:2.5rem;}
-  .resume-cta-box{padding:2rem;}
-}
-</style>
-</head>
-<body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 8.5rem);
+      line-height: .9;
+      letter-spacing: -.01em;
+    }
 
-<nav>
-  <div class="nav-logo">S.T</div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#work">Projects</a>
-    <a href="#edu">Education</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+    .hero-name span {
+      color: var(--rust);
+    }
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Full-Stack Developer · Available for Opportunities</div>
-    <h1 class="hero-name">SUMIT<br><span>TIVADE</span></h1>
-    <div class="hero-title">Builds the Web · Tells Data Stories</div>
-    <p class="hero-desc">Full-Stack Developer from Kolhapur crafting responsive web applications and transforming complex data into powerful visual insights.</p>
-    <div class="hero-contact">
-      <span>📧 <b>tiwade328@gmail.com</b></span>
-      <span>📞 <b>9527240021</b></span>
-      <span>📍 <b>Umalwad, Kolhapur</b></span>
-    </div>
-    <div class="hero-cta">
-      <a href="#work" class="btn-primary">See My Projects</a>
-      <a href="#contact" class="btn-ghost">Hire Me</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <canvas id="heroCanvas"></canvas>
-  </div>
-  <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
-</section>
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--muted);
+      letter-spacing: .06em;
+      margin-top: .5rem;
+    }
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">HTML <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">CSS <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">JavaScript <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Java <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Spring Boot <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">MySQL <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">MS Excel <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Data Visualization <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">VS Code <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">HTML <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">CSS <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">JavaScript <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Java <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Spring Boot <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">MySQL <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">MS Excel <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Data Visualization <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">VS Code <span class="marquee-dot">✦</span></span>
-  </div>
-</div>
+    .hero-desc {
+      margin-top: 1.8rem;
+      font-size: .95rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 380px;
+      font-weight: 300;
+    }
 
-<!-- ABOUT -->
-<section id="about">
- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animated Bio</title>
+    .hero-contact {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    .hero-contact span {
+      font-size: .78rem;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
-    background-size: 600% 600%;
-    animation: gradientBG 10s ease infinite;
-    color: white;
-}
+    .hero-contact span b {
+      color: var(--ink);
+      font-weight: 500;
+    }
 
-/* Background Animation */
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 80px 20px;
-    text-align: center;
-}
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+      padding: .85rem 2rem;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
 
-/* Heading Glow */
-h1 {
-    font-size: 42px;
-    background: linear-gradient(45deg, #00f2fe, #4facfe);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glow 2s ease-in-out infinite alternate;
-}
+    .btn-primary:hover {
+      background: var(--rust);
+      transform: translateY(-2px);
+    }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px #00f2fe; }
-    to { text-shadow: 0 0 20px #4facfe; }
-}
+    .btn-ghost {
+      color: var(--ink);
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 2px;
+      opacity: .6;
+      transition: opacity .2s;
+    }
 
-/* Typing Effect */
-.typing {
-    font-size: 20px;
-    border-right: 2px solid white;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
-}
+    .btn-ghost:hover {
+      opacity: 1;
+    }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-@keyframes blink {
-    50% { border-color: transparent }
-}
+    #heroCanvas {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
 
-/* Fade In Section */
-.bio {
-    margin-top: 30px;
-    font-size: 18px;
-    line-height: 1.6;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 2s ease forwards;
-    animation-delay: 2s;
-}
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      z-index: 10;
+    }
 
-@keyframes fadeUp {
-    to {
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+      animation: sp 2s ease-in-out infinite;
+    }
+
+    @keyframes sp {
+
+      0%,
+      100% {
+        opacity: .35;
+      }
+
+      50% {
         opacity: 1;
-        transform: translateY(0);
+      }
     }
-}
 
-/* Highlight */
-.highlight {
-    color: #00f2fe;
-    font-weight: bold;
-}
-</style>
+    .marquee-wrap {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 1rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 2.5rem;
+      animation: mq 20s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: .06em;
+    }
+
+    .marquee-dot {
+      color: var(--rust);
+    }
+
+    @keyframes mq {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    #about {
+      padding: 7rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-big-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11rem;
+      line-height: 1;
+      color: var(--paper);
+    }
+
+    .section-label {
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 1.4rem;
+    }
+
+    .section-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-text {
+      font-size: .96rem;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.4rem;
+    }
+
+    .skill-tag {
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .38rem .85rem;
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      cursor: default;
+      transition: background .2s, color .2s;
+    }
+
+    .skill-tag:hover {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #work {
+      padding: 7rem 4rem;
+      background: var(--paper);
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid rgba(13, 13, 13, .08);
+      aspect-ratio: 16/10;
+    }
+
+    .project-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+      opacity: 0;
+      transition: opacity .35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: .95;
+    }
+
+    .proj-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, .07);
+      position: absolute;
+      top: .8rem;
+      right: 1.2rem;
+      line-height: 1;
+    }
+
+    .proj-tag {
+      font-size: .66rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: .4rem;
+    }
+
+    .proj-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.9rem;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: .5rem;
+    }
+
+    .proj-desc {
+      font-size: .78rem;
+      color: rgba(245, 240, 232, .6);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .proj-arrow {
+      position: absolute;
+      top: 1.4rem;
+      left: 1.4rem;
+      width: 2rem;
+      height: 2rem;
+      background: var(--rust);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .95rem;
+      color: white;
+      transform: rotate(-45deg) scale(0);
+      transition: transform .3s ease;
+    }
+
+    .project-card:hover .proj-arrow {
+      transform: rotate(0deg) scale(1);
+    }
+
+    #edu {
+      padding: 7rem 4rem;
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, .08);
+      margin-top: 3rem;
+    }
+
+    .edu-card {
+      background: var(--ink);
+      padding: 2.2rem 2rem;
+    }
+
+    .edu-year {
+      font-size: .7rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: .8rem;
+    }
+
+    .edu-inst {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+
+    .edu-degree {
+      font-size: .8rem;
+      color: rgba(245, 240, 232, .5);
+      line-height: 1.5;
+      margin-bottom: .8rem;
+    }
+
+    .edu-score {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+    }
+
+    .edu-score-label {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, .35);
+    }
+
+    #stats {
+      padding: 4.5rem 4rem;
+      background: var(--rust);
+      color: var(--cream);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-item {
+      padding: 1.8rem 2rem;
+      border-right: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--cream);
+    }
+
+    .stat-label {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+      margin-top: .3rem;
+    }
+
+    #cert {
+      padding: 5rem 4rem;
+      background: var(--paper);
+    }
+
+    .cert-box {
+      margin-top: 2.5rem;
+      border: 2px solid var(--ink);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 580px;
+    }
+
+    .cert-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .cert-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .cert-sub {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: .3rem;
+    }
+
+    #contact {
+      padding: 7rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .contact-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      line-height: .95;
+    }
+
+    .contact-big span {
+      color: var(--rust);
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+
+    .contact-info a {
+      font-size: .9rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      transition: color .2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--rust);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .form-field label {
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid rgba(13, 13, 13, .2);
+      padding: .55rem 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .93rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s;
+      resize: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--rust);
+    }
+
+    .form-field textarea {
+      height: 75px;
+    }
+
+    .submit-btn {
+      background: var(--ink);
+      color: white;
+      border: none;
+      padding: .9rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background .2s, transform .15s;
+    }
+
+    .submit-btn:hover {
+      background: var(--rust);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--ink);
+      color: rgba(245, 240, 232, .4);
+      padding: 1.8rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .73rem;
+      letter-spacing: .1em;
+    }
+
+    footer .fl {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width:900px) {
+      #hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        height: 50vh;
+      }
+
+      #about,
+      #contact {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-big-num {
+        display: none;
+      }
+
+      .projects-grid,
+      .edu-grid,
+      #stats {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 1.2rem 1.5rem;
+      }
+
+      #about,
+      #work,
+      #edu,
+      #cert,
+      #contact {
+        padding: 4rem 1.5rem;
+      }
+
+      #stats {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    /* Resume Section */
+    #resume {
+      padding: 7rem 4rem;
+      background: var(--cream);
+      border-top: 1px solid rgba(13, 13, 13, .05);
+    }
+
+    .resume-container {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .resume-summary {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .resume-summary b {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .resume-cta-box {
+      background: var(--ink);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-cta-box::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 150px;
+      height: 150px;
+      background: var(--rust);
+      border-radius: 50%;
+      opacity: .2;
+      filter: blur(40px);
+    }
+
+    .resume-cta-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .btn-resume {
+      background: var(--rust);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .85rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: transform .2s, background .2s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-resume:hover {
+      background: var(--blue);
+      transform: translateY(-3px);
+    }
+
+    @media(max-width:900px) {
+      .resume-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .resume-cta-box {
+        padding: 2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-<div class="container">
-    <h1>Hello, I'm Sumit 👋</h1>
-
-    <div class="typing">
-        Full-Stack Developer | Data Storyteller 📊
+  <nav>
+    <div class="nav-logo">S.T</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Projects</a>
+      <a href="#edu">Education</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
 
-    <p class="bio">
-        I’m a <span class="highlight">Full-Stack Developer</span> with a passion for building 
-        scalable web applications and transforming complex data into powerful insights.  
-        Currently pursuing <span class="highlight">MCA</span>, I combine development skills 
-        with strong analytical thinking from my background in <span class="highlight">Statistics</span>.  
-        <br><br>
-        I create modern, responsive applications AND design dynamic dashboards using 
-        <span class="highlight">MS Excel & PivotTables</span> to tell meaningful data stories.
-        <br><br>
-        🚀 Always learning. Always building. Always improving.
-    </p>
-</div>
-
-   
-</section>
-
-<!-- PROJECTS -->
-<section id="work">
-  <div class="work-header reveal">
-    <div>
-      <div class="section-label">Selected Projects</div>
-      <h2 class="section-heading">MY WORK</h2>
-    </div>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card reveal">
-      <canvas class="project-canvas" id="proj1"></canvas>
-      <div class="project-overlay">
-        <div class="proj-num">01</div>
-        <div class="proj-arrow">↗</div>
-        <div class="proj-tag">Full-Stack · Spring Boot · MySQL</div>
-        <div class="proj-title">HOTEL BOOKING PLATFORM</div>
-        <div class="proj-desc">Web-based hotel booking app with HTML/CSS/JS front-end and Java Spring Boot + MySQL back-end. Manages reservations, room availability, and customer details.</div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Full-Stack Developer · Available for Opportunities</div>
+      <h1 class="hero-name">SUMIT<br><span>TIVADE</span></h1>
+      <div class="hero-title">Builds the Web · Tells Data Stories</div>
+      <p class="hero-desc">Full-Stack Developer from Kolhapur crafting responsive web applications and transforming
+        complex data into powerful visual insights.</p>
+      <div class="hero-contact">
+        <span>📧 <b>tiwade328@gmail.com</b></span>
+        <span>📞 <b>9527240021</b></span>
+        <span>📍 <b>Umalwad, Kolhapur</b></span>
+      </div>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">See My Projects</a>
+        <a href="#contact" class="btn-ghost">Hire Me</a>
       </div>
     </div>
-    <div class="project-card reveal" style="transition-delay:.12s">
-      <canvas class="project-canvas" id="proj2"></canvas>
-      <div class="project-overlay">
-        <div class="proj-num">02</div>
-        <div class="proj-arrow">↗</div>
-        <div class="proj-tag">Data Analysis · Excel · Statistics</div>
-        <div class="proj-title"><a href="Stat.html">CONSUMER PERCEPTION STUDY</a></div>
-        <div class="proj-desc">Analyzed consumer trust in four-wheeler brands using Excel PivotTables, t-tests, ANOVA, and bar/pie charts. Revealed how occupation shapes car-brand preferences.</div>
-        <div><a href="Stat.html">Click To See</a></div>
+    <div class="hero-right">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>Scroll
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">HTML <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">CSS <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">JavaScript <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Java <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Spring Boot <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">MySQL <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">MS Excel <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Data Visualization <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">VS Code <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">HTML <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">CSS <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">JavaScript <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Java <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Spring Boot <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">MySQL <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">MS Excel <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Data Visualization <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">VS Code <span class="marquee-dot">✦</span></span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Animated Bio</title>
+
+      <!-- Google Font -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+      <style>
+        body {
+          margin: 0;
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+          background-size: 600% 600%;
+          animation: gradientBG 10s ease infinite;
+          color: white;
+        }
+
+        /* Background Animation */
+        @keyframes gradientBG {
+          0% {
+            background-position: 0% 50%;
+          }
+
+          50% {
+            background-position: 100% 50%;
+          }
+
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        .container {
+          max-width: 900px;
+          margin: auto;
+          padding: 80px 20px;
+          text-align: center;
+        }
+
+        /* Heading Glow */
+        h1 {
+          font-size: 42px;
+          background: linear-gradient(45deg, #00f2fe, #4facfe);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+          from {
+            text-shadow: 0 0 10px #00f2fe;
+          }
+
+          to {
+            text-shadow: 0 0 20px #4facfe;
+          }
+        }
+
+        /* Typing Effect */
+        .typing {
+          font-size: 20px;
+          border-right: 2px solid white;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 0;
+          animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
+        }
+
+        @keyframes typing {
+          from {
+            width: 0
+          }
+
+          to {
+            width: 100%
+          }
+        }
+
+        @keyframes blink {
+          50% {
+            border-color: transparent
+          }
+        }
+
+        /* Fade In Section */
+        .bio {
+          margin-top: 30px;
+          font-size: 18px;
+          line-height: 1.6;
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeUp 2s ease forwards;
+          animation-delay: 2s;
+        }
+
+        @keyframes fadeUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Highlight */
+        .highlight {
+          color: #00f2fe;
+          font-weight: bold;
+        }
+      </style>
+    </head>
+
+    <body>
+
+      <div class="container">
+        <h1>Hello, I'm Sumit 👋</h1>
+
+        <div class="typing">
+          Full-Stack Developer | Data Storyteller 📊
+        </div>
+
+        <p class="bio">
+          I’m a <span class="highlight">Full-Stack Developer</span> with a passion for building
+          scalable web applications and transforming complex data into powerful insights.
+          Currently pursuing <span class="highlight">MCA</span>, I combine development skills
+          with strong analytical thinking from my background in <span class="highlight">Statistics</span>.
+          <br><br>
+          I create modern, responsive applications AND design dynamic dashboards using
+          <span class="highlight">MS Excel & PivotTables</span> to tell meaningful data stories.
+          <br><br>
+          🚀 Always learning. Always building. Always improving.
+        </p>
+      </div>
+
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="work">
+    <div class="work-header reveal">
+      <div>
+        <div class="section-label">Selected Projects</div>
+        <h2 class="section-heading" style="color: black;">MY WORK</h2>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="edu">
-  <div class="section-label" style="color:rgba(245,240,232,.5)" class="reveal">Education</div>
-  <h2 class="section-heading reveal" style="color:var(--cream)">ACADEMIC<br>JOURNEY</h2>
-  <div class="edu-grid">
-    <div class="edu-card reveal">
-      <div class="edu-year">2020 – 2025</div>
-      <div class="edu-inst">Jaysingpur College</div>
-      <div class="edu-degree">Bachelor of Science in Statistics</div>
-      <div class="edu-score">8.12</div>
-      <div class="edu-score-label">CGPA</div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <canvas class="project-canvas" id="proj1"></canvas>
+        <div class="project-overlay">
+          <div class="proj-num">01</div>
+          <div class="proj-arrow">↗</div>
+          <div class="proj-tag">Full-Stack · Spring Boot · MySQL</div>
+          <div class="proj-title">HOTEL BOOKING PLATFORM</div>
+          <div class="proj-desc">Web-based hotel booking app with HTML/CSS/JS front-end and Java Spring Boot + MySQL
+            back-end. Manages reservations, room availability, and customer details.</div>
+        </div>
+      </div>
+      <div class="project-card reveal" style="transition-delay:.12s">
+        <canvas class="project-canvas" id="proj2"></canvas>
+        <div class="project-overlay">
+          <div class="proj-num">02</div>
+          <div class="proj-arrow">↗</div>
+          <div class="proj-tag">Data Analysis · Excel · Statistics</div>
+          <div class="proj-title"><a href="Stat.html">CONSUMER PERCEPTION STUDY</a></div>
+          <div class="proj-desc">Analyzed consumer trust in four-wheeler brands using Excel PivotTables, t-tests, ANOVA,
+            and bar/pie charts. Revealed how occupation shapes car-brand preferences.</div>
+          <div><a href="Stat.html">Click To See</a></div>
+        </div>
+      </div>
     </div>
-    <div class="edu-card reveal" style="transition-delay:.1s">
-      <div class="edu-year">Feb 2020</div>
-      <div class="edu-inst">Navjeevan High School</div>
-      <div class="edu-degree">HSC · Maharashtra State Board</div>
-      <div class="edu-score">53%</div>
-      <div class="edu-score-label">Percentage</div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="edu">
+    <div class="section-label" style="color:rgba(245,240,232,.5)" class="reveal">Education</div>
+    <h2 class="section-heading reveal" style="color:var(--cream)">ACADEMIC<br>JOURNEY</h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-year">2020 – 2025</div>
+        <div class="edu-inst">Jaysingpur College</div>
+        <div class="edu-degree">Bachelor of Science in Statistics</div>
+        <div class="edu-score">8.12</div>
+        <div class="edu-score-label">CGPA</div>
+      </div>
+      <div class="edu-card reveal" style="transition-delay:.1s">
+        <div class="edu-year">Feb 2020</div>
+        <div class="edu-inst">Navjeevan High School</div>
+        <div class="edu-degree">HSC · Maharashtra State Board</div>
+        <div class="edu-score">53%</div>
+        <div class="edu-score-label">Percentage</div>
+      </div>
+      <div class="edu-card reveal" style="transition-delay:.2s">
+        <div class="edu-year">March 2018</div>
+        <div class="edu-inst">Shri Danling Vidyalaya</div>
+        <div class="edu-degree">SSC · Maharashtra State Board</div>
+        <div class="edu-score">76%</div>
+        <div class="edu-score-label">Percentage</div>
+      </div>
     </div>
-    <div class="edu-card reveal" style="transition-delay:.2s">
-      <div class="edu-year">March 2018</div>
-      <div class="edu-inst">Shri Danling Vidyalaya</div>
-      <div class="edu-degree">SSC · Maharashtra State Board</div>
-      <div class="edu-score">76%</div>
-      <div class="edu-score-label">Percentage</div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stat-item reveal">
+      <div class="stat-num" id="s1">2</div>
+      <div class="stat-label">Projects Built</div>
     </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section id="stats">
-  <div class="stat-item reveal">
-    <div class="stat-num" id="s1">2</div>
-    <div class="stat-label">Projects Built</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:.1s">
-    <div class="stat-num" id="s2">8</div>
-    <div class="stat-label">Tech Skills</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:.2s">
-    <div class="stat-num" id="s3">1</div>
-    <div class="stat-label">Certification</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:.3s">
-    <div class="stat-num" id="s4">8</div>
-    <div class="stat-label">CGPA</div>
-  </div>
-</section>
-
-<!-- CERTIFICATE -->
-<section id="cert">
-  <div class="section-label reveal">Certification</div>
-  <h2 class="section-heading reveal" style="color: #1a3a5c;">CERTIFIED &amp;<br>TRAINED</h2>
-  <div class="cert-box reveal">
-    <div class="cert-icon">🏆</div>
-    <div>
-      <div class="cert-name" style="color: #0d0d0d;">Java Full Stack</div>
-      <div class="cert-sub" style="color: #c0392b;" >Qweez Technology, Kolhapur · 2024</div>
+    <div class="stat-item reveal" style="transition-delay:.1s">
+      <div class="stat-num" id="s2">8</div>
+      <div class="stat-label">Tech Skills</div>
     </div>
-  </div>
-</section>
-
-<!-- RESUME -->
-<section id="resume" class="reveal">
-  <div class="resume-container">
-    <div>
-      <div class="section-label">Professional Summary</div>
-      <h2 class="section-heading">ELEVATING DATA<br>THROUGH CODE</h2>
-      <p class="resume-summary">
-        Analytical <b>Full-Stack Developer</b> with a deep foundation in <b>Statistics</b>. Pursuing MCA with a passion for building scalable web applications and transforming data into actionable insights. Expert at bridging the gap between complex backend logic and intuitive frontend experiences.
-      </p>
+    <div class="stat-item reveal" style="transition-delay:.2s">
+      <div class="stat-num" id="s3">1</div>
+      <div class="stat-label">Certification</div>
     </div>
-    <div class="resume-cta-box">
-      <div class="resume-cta-text">VIEW MY FULL<br>PROFESSIONAL<br>JOURNEY</div>
-      <a href="sumit_resume.pdf" class="btn-resume" download="Sumit_Tivade_Resume.pdf">Download Resume (PDF)</a>
+    <div class="stat-item reveal" style="transition-delay:.3s">
+      <div class="stat-num" id="s4">8</div>
+      <div class="stat-label">CGPA</div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="reveal">
-    <div class="section-label">Let's Connect</div>
-    <h2 class="contact-big">READY TO<br><span>BUILD</span><br>SOMETHING<br>GREAT?</h2>
-    <div class="contact-info">
-      <a href="mailto:tiwade328@gmail.com">✉ tiwade328@gmail.com</a>
-      <a href="tel:9527240021">📞 9527240021</a>
-      <a>📍 Umalwad, Kolhapur, Maharashtra</a>
+  <!-- CERTIFICATE -->
+  <section id="cert">
+    <div class="section-label reveal">Certification</div>
+    <h2 class="section-heading reveal" style="color: #1a3a5c;">CERTIFIED &amp;<br>TRAINED</h2>
+    <div class="cert-box reveal">
+      <div class="cert-icon">🏆</div>
+      <div>
+        <div class="cert-name" style="color: #0d0d0d;">Java Full Stack</div>
+        <div class="cert-sub" style="color: #c0392b;">Qweez Technology, Kolhapur · 2024</div>
+      </div>
     </div>
-  </div>
-  <div class="contact-form reveal">
-    <div class="form-field">
-      <label>Your Name</label>
-      <input type="text" placeholder="robert">
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume" class="reveal">
+    <div class="resume-container">
+      <div>
+        <div class="section-label">Professional Summary</div>
+        <h2 class="section-heading" style="color: black;">ELEVATING DATA<br>THROUGH CODE</h2>
+        <p class="resume-summary">
+          Analytical <b>Full-Stack Developer</b> with a deep foundation in <b>Statistics</b>. Pursuing MCA with a
+          passion for building scalable web applications and transforming data into actionable insights. Expert at
+          bridging the gap between complex backend logic and intuitive frontend experiences.
+        </p>
+      </div>
+      <div class="resume-cta-box">
+        <div class="resume-cta-text">VIEW MY FULL<br>PROFESSIONAL<br>JOURNEY</div>
+        <a href="sumit_resume.pdf" class="btn-resume" download="Sumit_Tivade_Resume.pdf">Download Resume (PDF)</a>
+      </div>
     </div>
-    <div class="form-field">
-      <label>Email Address</label>
-      <input type="email" placeholder="s@example.com">
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="reveal">
+      <div class="section-label">Let's Connect</div>
+      <h2 class="contact-big">READY TO<br><span>BUILD</span><br>SOMETHING<br>GREAT?</h2>
+      <div class="contact-info">
+        <a href="mailto:tiwade328@gmail.com">✉ tiwade328@gmail.com</a>
+        <a href="tel:9527240021">📞 9527240021</a>
+        <a>📍 Umalwad, Kolhapur, Maharashtra</a>
+      </div>
     </div>
-    <div class="form-field">
-      <label>Message</label>
-      <textarea placeholder="Tell me about your project or opportunity..."></textarea>
+    <div class="contact-form reveal">
+      <div class="form-field">
+        <label>Your Name</label>
+        <input type="text" placeholder="robert">
+      </div>
+      <div class="form-field">
+        <label>Email Address</label>
+        <input type="email" placeholder="s@example.com">
+      </div>
+      <div class="form-field">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your project or opportunity..."></textarea>
+      </div>
+      <button class="submit-btn">Send Message →</button>
     </div>
-    <button class="submit-btn">Send Message →</button>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <span class="fl">Sumit Tivade</span>
-  <span>© 2025 · Full-Stack Developer · Kolhapur</span>
-  <span>tiwade328@gmail.com</span>
-</footer>
+  <footer>
+    <span class="fl">Sumit Tivade</span>
+    <span>© 2025 · Full-Stack Developer · Kolhapur</span>
+    <span>tiwade328@gmail.com</span>
+  </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-// Cursor
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-let mx=-100,my=-100,rx=-100,ry=-100;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function ac(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ac);})();
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Cursor
+    const cur = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
+    let mx = -100, my = -100, rx = -100, ry = -100;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function ac() { cur.style.left = mx + 'px'; cur.style.top = my + 'px'; rx += (mx - rx) * .12; ry += (my - ry) * .12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(ac); })();
 
-// Scroll reveal
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Hero 3D
-(function(){
-  const canvas=document.getElementById('heroCanvas');
-  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-  renderer.setClearColor(0,0);
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(50,1,.1,100);
-  camera.position.z=6;
-  function resize(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
-  resize();window.addEventListener('resize',resize);
+    // Hero 3D
+    (function () {
+      const canvas = document.getElementById('heroCanvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.setClearColor(0, 0);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, 1, .1, 100);
+      camera.position.z = 6;
+      function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+      resize(); window.addEventListener('resize', resize);
 
-  // Main shape — octahedron for a sharp, geometric, bold look
-  const geo=new THREE.OctahedronGeometry(1.6,2);
-  const mat=new THREE.MeshStandardMaterial({color:0x0d0d0d,roughness:.25,metalness:.75});
-  const mesh=new THREE.Mesh(geo,mat);scene.add(mesh);
-  const wmat=new THREE.MeshBasicMaterial({color:0xc0392b,wireframe:true,opacity:.15,transparent:true});
-  const wm=new THREE.Mesh(geo,wmat);scene.add(wm);
+      // Main shape — octahedron for a sharp, geometric, bold look
+      const geo = new THREE.OctahedronGeometry(1.6, 2);
+      const mat = new THREE.MeshStandardMaterial({ color: 0x0d0d0d, roughness: .25, metalness: .75 });
+      const mesh = new THREE.Mesh(geo, mat); scene.add(mesh);
+      const wmat = new THREE.MeshBasicMaterial({ color: 0xc0392b, wireframe: true, opacity: .15, transparent: true });
+      const wm = new THREE.Mesh(geo, wmat); scene.add(wm);
 
-  // Inner glowing sphere
-  const sg=new THREE.SphereGeometry(.7,32,32);
-  const sm=new THREE.MeshStandardMaterial({color:0xd4a01e,roughness:.1,metalness:.9,emissive:0xd4a01e,emissiveIntensity:.3});
-  const sphere=new THREE.Mesh(sg,sm);scene.add(sphere);
+      // Inner glowing sphere
+      const sg = new THREE.SphereGeometry(.7, 32, 32);
+      const sm = new THREE.MeshStandardMaterial({ color: 0xd4a01e, roughness: .1, metalness: .9, emissive: 0xd4a01e, emissiveIntensity: .3 });
+      const sphere = new THREE.Mesh(sg, sm); scene.add(sphere);
 
-  // Particles
-  const pg=new THREE.BufferGeometry();
-  const N=400,pp=new Float32Array(N*3);
-  for(let i=0;i<N;i++){pp[i*3]=(Math.random()-.5)*16;pp[i*3+1]=(Math.random()-.5)*16;pp[i*3+2]=(Math.random()-.5)*8;}
-  pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
-  const pm=new THREE.PointsMaterial({color:0xc0392b,size:.05});
-  scene.add(new THREE.Points(pg,pm));
+      // Particles
+      const pg = new THREE.BufferGeometry();
+      const N = 400, pp = new Float32Array(N * 3);
+      for (let i = 0; i < N; i++) { pp[i * 3] = (Math.random() - .5) * 16; pp[i * 3 + 1] = (Math.random() - .5) * 16; pp[i * 3 + 2] = (Math.random() - .5) * 8; }
+      pg.setAttribute('position', new THREE.BufferAttribute(pp, 3));
+      const pm = new THREE.PointsMaterial({ color: 0xc0392b, size: .05 });
+      scene.add(new THREE.Points(pg, pm));
 
-  scene.add(new THREE.AmbientLight(0xf5f0e8,.5));
-  const pl1=new THREE.PointLight(0xc0392b,4,12);pl1.position.set(4,4,4);scene.add(pl1);
-  const pl2=new THREE.PointLight(0xd4a01e,3,10);pl2.position.set(-4,-2,3);scene.add(pl2);
-  const dl=new THREE.DirectionalLight(0xffffff,1.2);dl.position.set(0,5,5);scene.add(dl);
+      scene.add(new THREE.AmbientLight(0xf5f0e8, .5));
+      const pl1 = new THREE.PointLight(0xc0392b, 4, 12); pl1.position.set(4, 4, 4); scene.add(pl1);
+      const pl2 = new THREE.PointLight(0xd4a01e, 3, 10); pl2.position.set(-4, -2, 3); scene.add(pl2);
+      const dl = new THREE.DirectionalLight(0xffffff, 1.2); dl.position.set(0, 5, 5); scene.add(dl);
 
-  let mx2=0,my2=0;
-  document.addEventListener('mousemove',e=>{mx2=(e.clientX/innerWidth-.5)*2;my2=(e.clientY/innerHeight-.5)*2;});
+      let mx2 = 0, my2 = 0;
+      document.addEventListener('mousemove', e => { mx2 = (e.clientX / innerWidth - .5) * 2; my2 = (e.clientY / innerHeight - .5) * 2; });
 
-  let t=0;
-  function animate(){
-    t+=.007;
-    mesh.rotation.x=t*.35+my2*.25;mesh.rotation.y=t*.55+mx2*.25;
-    wm.rotation.copy(mesh.rotation);
-    sphere.rotation.y=t*.8;sphere.rotation.x=t*.5;
-    pl1.position.x=Math.sin(t*.6)*5;pl1.position.y=Math.cos(t*.4)*4;
-    renderer.render(scene,camera);requestAnimationFrame(animate);
-  }animate();
-})();
+      let t = 0;
+      function animate() {
+        t += .007;
+        mesh.rotation.x = t * .35 + my2 * .25; mesh.rotation.y = t * .55 + mx2 * .25;
+        wm.rotation.copy(mesh.rotation);
+        sphere.rotation.y = t * .8; sphere.rotation.x = t * .5;
+        pl1.position.x = Math.sin(t * .6) * 5; pl1.position.y = Math.cos(t * .4) * 4;
+        renderer.render(scene, camera); requestAnimationFrame(animate);
+      } animate();
+    })();
 
-// Project cards 3D
-function proj(id,bg,shapeColor,type){
-  const canvas=document.getElementById(id);if(!canvas)return;
-  const renderer=new THREE.WebGLRenderer({canvas,alpha:false,antialias:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-  const scene=new THREE.Scene();scene.background=new THREE.Color(bg);
-  const camera=new THREE.PerspectiveCamera(50,1,.1,50);camera.position.z=4;
-  function resize(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
-  resize();
+    // Project cards 3D
+    function proj(id, bg, shapeColor, type) {
+      const canvas = document.getElementById(id); if (!canvas) return;
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      const scene = new THREE.Scene(); scene.background = new THREE.Color(bg);
+      const camera = new THREE.PerspectiveCamera(50, 1, .1, 50); camera.position.z = 4;
+      function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+      resize();
 
-  const geo=type===0?new THREE.TorusKnotGeometry(1,0.35,120,16,2,3):new THREE.IcosahedronGeometry(1.3,1);
-  const mat=new THREE.MeshStandardMaterial({color:shapeColor,roughness:.3,metalness:.65});
-  const mesh=new THREE.Mesh(geo,mat);scene.add(mesh);
-  const wm=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:0xffffff,wireframe:true,opacity:.07,transparent:true}));scene.add(wm);
-  scene.add(new THREE.AmbientLight(0xffffff,.5));
-  const pl=new THREE.PointLight(0xffffff,3,10);pl.position.set(3,3,3);scene.add(pl);
-  let t=Math.random()*100;
-  (function a(){t+=.011;mesh.rotation.x=t*.4;mesh.rotation.y=t*.65;wm.rotation.copy(mesh.rotation);renderer.render(scene,camera);requestAnimationFrame(a);})();
-}
-proj('proj1',0x1a1020,0xc0392b,0);
-proj('proj2',0x0d1e10,0xd4a01e,1);
-
-// Stat counters
-const statData=[{el:'s1',val:2,suf:'+'},{el:'s2',val:8,suf:'+'},{el:'s3',val:1,suf:''},{el:'s4',val:8,suf:'.12'}];
-const sObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const d=statData.find(x=>x.el===e.target.id);
-      if(!d)return;
-      let n=0,target=d.val;
-      const step=()=>{n=Math.min(n+1,target);e.target.textContent=n+d.suf;if(n<target)setTimeout(step,40);};
-      step();sObs.unobserve(e.target);
+      const geo = type === 0 ? new THREE.TorusKnotGeometry(1, 0.35, 120, 16, 2, 3) : new THREE.IcosahedronGeometry(1.3, 1);
+      const mat = new THREE.MeshStandardMaterial({ color: shapeColor, roughness: .3, metalness: .65 });
+      const mesh = new THREE.Mesh(geo, mat); scene.add(mesh);
+      const wm = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, opacity: .07, transparent: true })); scene.add(wm);
+      scene.add(new THREE.AmbientLight(0xffffff, .5));
+      const pl = new THREE.PointLight(0xffffff, 3, 10); pl.position.set(3, 3, 3); scene.add(pl);
+      let t = Math.random() * 100;
+      (function a() { t += .011; mesh.rotation.x = t * .4; mesh.rotation.y = t * .65; wm.rotation.copy(mesh.rotation); renderer.render(scene, camera); requestAnimationFrame(a); })();
     }
-  });
-},{threshold:.5});
-['s1','s2','s3','s4'].forEach(id=>{const el=document.getElementById(id);if(el)sObs.observe(el);});
-</script>
+    proj('proj1', 0x1a1020, 0xc0392b, 0);
+    proj('proj2', 0x0d1e10, 0xd4a01e, 1);
+
+    // Stat counters
+    const statData = [{ el: 's1', val: 2, suf: '+' }, { el: 's2', val: 8, suf: '+' }, { el: 's3', val: 1, suf: '' }, { el: 's4', val: 8, suf: '.12' }];
+    const sObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const d = statData.find(x => x.el === e.target.id);
+          if (!d) return;
+          let n = 0, target = d.val;
+          const step = () => { n = Math.min(n + 1, target); e.target.textContent = n + d.suf; if (n < target) setTimeout(step, 40); };
+          step(); sObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: .5 });
+    ['s1', 's2', 's3', 's4'].forEach(id => { const el = document.getElementById(id); if (el) sObs.observe(el); });
+  </script>
 </body>
+
 </html>
