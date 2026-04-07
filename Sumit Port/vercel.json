@@ -1,6 +1,0 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/sumit_portfolio.html" }
-  ]
-}
