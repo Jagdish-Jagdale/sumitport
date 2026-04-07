@@ -126,6 +126,22 @@ footer .fl{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--crea
   #about,#work,#edu,#cert,#contact{padding:4rem 1.5rem;}
   #stats{padding:3rem 1.5rem;}
 }
+
+/* Resume Section */
+#resume{padding:7rem 4rem;background:var(--cream);border-top:1px solid rgba(13,13,13,.05);}
+.resume-container{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;}
+.resume-summary{font-size:1.1rem;line-height:1.7;color:var(--muted);font-weight:300;}
+.resume-summary b{color:var(--ink);font-weight:500;}
+.resume-cta-box{background:var(--ink);padding:3rem;display:flex;flex-direction:column;gap:1.5rem;justify-content:center;position:relative;overflow:hidden;}
+.resume-cta-box::before{content:'';position:absolute;top:-20%;right:-10%;width:150px;height:150px;background:var(--rust);border-radius:50%;opacity:.2;filter:blur(40px);}
+.resume-cta-text{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--cream);line-height:1;}
+.btn-resume{background:var(--rust);color:white;padding:1rem 2rem;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;display:inline-block;transition:transform .2s,background .2s;border:none;cursor:pointer;text-align:center;}
+.btn-resume:hover{background:var(--blue);transform:translateY(-3px);}
+
+@media(max-width:900px){
+  .resume-container{grid-template-columns:1fr;gap:2.5rem;}
+  .resume-cta-box{padding:2rem;}
+}
 </style>
 </head>
 <body>
@@ -138,6 +154,7 @@ footer .fl{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--crea
     <a href="#about">About</a>
     <a href="#work">Projects</a>
     <a href="#edu">Education</a>
+    <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -230,6 +247,7 @@ h1 {
     font-size: 42px;
     background: linear-gradient(45deg, #00f2fe, #4facfe);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: glow 2s ease-in-out infinite alternate;
 }
@@ -400,6 +418,23 @@ h1 {
     <div>
       <div class="cert-name" style="color: #0d0d0d;">Java Full Stack</div>
       <div class="cert-sub" style="color: #c0392b;" >Qweez Technology, Kolhapur · 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume" class="reveal">
+  <div class="resume-container">
+    <div>
+      <div class="section-label">Professional Summary</div>
+      <h2 class="section-heading">ELEVATING DATA<br>THROUGH CODE</h2>
+      <p class="resume-summary">
+        Analytical <b>Full-Stack Developer</b> with a deep foundation in <b>Statistics</b>. Pursuing MCA with a passion for building scalable web applications and transforming data into actionable insights. Expert at bridging the gap between complex backend logic and intuitive frontend experiences.
+      </p>
+    </div>
+    <div class="resume-cta-box">
+      <div class="resume-cta-text">VIEW MY FULL<br>PROFESSIONAL<br>JOURNEY</div>
+      <a href="sumit_resume.pdf" class="btn-resume" download="Sumit_Tivade_Resume.pdf">Download Resume (PDF)</a>
     </div>
   </div>
 </section>
