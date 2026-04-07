@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistical Car Market Study</title>
+
+<link rel="stylesheet" href="Stat.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+  <h1>📊 Statistical Analysis Dashboard</h1>
+  <p>Study on Consumer Perception of Four-Wheeler Companies</p>
+</header>
+
+<section class="card">
+  <h2><i class="fa-solid fa-book"></i> Introduction</h2>
+  <p>
+    Statistics (Σ) is the science of data collection, analysis and interpretation.
+    This project uses <b>χ² (Chi-Square)</b> and <b>Z-Test</b> to analyze customer behavior.
+  </p>
+  <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" class="icon-img">
+</section>
+
+<section class="card flex-box">
+  
+  <!-- LEFT TEXT -->
+  <div class="text">
+    <h2>📊 Purchase Factors</h2>
+    <p>
+      From the study, most customers prefer cars based on 
+      <b>Economic factors (34%)</b> and <b>Comfort (33%)</b>. 
+      Design and seat capacity have lower influence.
+    </p>
+  </div>
+
+  <!-- RIGHT CHART -->
+  <div class="chart-box">
+    <canvas id="pieChart"></canvas>
+  </div>
+
+</section>
+<section class="card">
+  <h2>🏢 Company Preference</h2>
+  <canvas id="companyChart"></canvas>
+</section>
+
+<section class="card">
+  <h2>📉 Factor Analysis</h2>
+  <canvas id="barChart"></canvas>
+</section>
+
+<section class="card flex-box">
+
+  <!-- LEFT TEXT -->
+  <div class="text">
+    <h2>🏢 Company Preference</h2>
+    <p>
+      The analysis shows that <b>Maruti Suzuki dominates with 42%</b>.
+      Other companies like Tata, Hyundai and Mahindra have nearly equal share.
+    </p>
+  </div>
+
+  <!-- RIGHT CHART -->
+  <div class="chart-box">
+    <canvas id="companyChart"></canvas>
+  </div>
+
+</section>
+
+<section class="card stats">
+  <h2><i class="fa-solid fa-calculator"></i> Statistical Formula</h2>
+
+  <p>Chi-Square Formula:</p>
+  <h3>χ² = Σ (O - E)² / E</h3>
+
+  <p>Z-Test Formula:</p>
+  <h3>Z = (p₁ - p₂) / √(PQ (1/n₁ + 1/n₂))</h3>
+</section>
+
+<section class="card">
+  <h2>📈 Results</h2>
+  <p><b>Z = 3.79 > 1.64</b> → Reject H₀</p>
+  <p><b>χ² = 7.74 > 3.84</b> → Reject H₀</p>
+
+  <p>👉 Mileage differs across companies</p>
+  <p>👉 Loan depends on occupation</p>
+</section>
+
+<section class="card">
+  <h2>✅ Conclusion</h2>
+  <ul>
+    <li>🚗 Economic & comfort are top factors</li>
+    <li>🏆 Maruti Suzuki dominates (42%)</li>
+    <li>📊 Loan depends on occupation</li>
+    <li>📉 Mileage perception differs</li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2022 Statistical Project | Sumit Tivade</p>
+</footer>
+
+<script src="stat.js"></script>
+</body>
+</html>
